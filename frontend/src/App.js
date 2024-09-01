@@ -1,11 +1,10 @@
 import React from 'react'
-import AddUser from './Components/AddUser'
+import Home from './Pages/Home'
 
 const App = () => {
   return (
     <div>
-      <h2 className='font-bold text-red-800'>Hello World</h2>
-      <AddUser/>
+     <Home/>
     </div>
   )
 }

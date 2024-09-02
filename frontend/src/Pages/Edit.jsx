@@ -14,7 +14,7 @@ const Edit = () => {
   });
 
   useEffect(() => {
-    axios.get(`http://localhost:8081/user/${id}`)
+    axios.get(`http://localhost:8081/view/${id}`)
       .then((resp) => setValues({
         name: resp.data[0].Name,
         email: resp.data[0].Email,

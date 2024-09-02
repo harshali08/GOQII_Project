@@ -202,6 +202,14 @@ const UserList = ({ refreshData }) => {
                         {formatDOB(user.DOB)}
                       </td>
                       <td className="px-6 py-4 whitespace-nowrap text-end text-sm font-medium">
+                      <Link to={`/view/${user.ID}`}>
+                          <button
+                            type="button"
+                            className="bg-green-600 px-2 py-1 text-white inline-flex items-center mx-1 gap-x-2 text-xsm font-semibold rounded-md border"
+                          >
+                            View
+                          </button>
+                        </Link>
                         <Link to={`/edit/${user.ID}`}>
                           <button
                             type="button"

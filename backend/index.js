@@ -37,7 +37,7 @@ app.post('/user',(req,resp)=>{
     })
 })
 
-app.get('/user/:id', (req, resp) => {
+app.get('/view/:id', (req, resp) => {
     const userId = req.params.id;
     const sql = "SELECT * FROM users WHERE id = ?";
     

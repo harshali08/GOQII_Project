@@ -135,7 +135,9 @@ const UserList = ({ refreshData }) => {
   };
 
   const handleDelete = (id) => {
-    const confirmDelete = window.confirm("Are you sure you want to delete this user?");
+    const confirmDelete = window.confirm(
+      "Are you sure you want to delete this user?"
+    );
     if (confirmDelete) {
       axios
         .delete(`http://localhost:8081/user/${id}`)
@@ -202,7 +204,7 @@ const UserList = ({ refreshData }) => {
                         {formatDOB(user.DOB)}
                       </td>
                       <td className="px-6 py-4 whitespace-nowrap text-end text-sm font-medium">
-                      <Link to={`/view/${user.ID}`}>
+                        <Link to={`/view/${user.ID}`}>
                           <button
                             type="button"
                             className="bg-green-600 px-2 py-1 text-white inline-flex items-center mx-1 gap-x-2 text-xsm font-semibold rounded-md border"

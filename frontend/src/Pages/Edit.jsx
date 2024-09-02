@@ -1,11 +1,10 @@
-
-import React, { useEffect, useState } from 'react';
-import { useParams, useNavigate } from 'react-router-dom'; 
-import axios from 'axios';
+import React, { useEffect, useState } from "react";
+import { useParams, useNavigate } from "react-router-dom";
+import axios from "axios";
 
 const Edit = () => {
-  const { id } = useParams(); 
-  const navigate = useNavigate(); 
+  const { id } = useParams();
+  const navigate = useNavigate();
   const [values, setValues] = useState({
     name: "",
     email: "",
@@ -14,22 +13,26 @@ const Edit = () => {
   });
 
   useEffect(() => {
-    axios.get(`http://localhost:8081/view/${id}`)
-      .then((resp) => setValues({
-        name: resp.data[0].Name,
-        email: resp.data[0].Email,
-        password: resp.data[0].Password,
-        dob: resp.data[0].DOB,
-      }))
+    axios
+      .get(`http://localhost:8081/view/${id}`)
+      .then((resp) =>
+        setValues({
+          name: resp.data[0].Name,
+          email: resp.data[0].Email,
+          password: resp.data[0].Password,
+          dob: resp.data[0].DOB,
+        })
+      )
       .catch((err) => console.log(err));
   }, [id]);
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    axios.put(`http://localhost:8081/user/${id}`, values)
+    axios
+      .put(`http://localhost:8081/user/${id}`, values)
       .then((resp) => {
         console.log(resp.data);
-        navigate('/'); 
+        navigate("/");
       })
       .catch((err) => console.log(err));
   };

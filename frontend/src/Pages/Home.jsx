@@ -16,7 +16,7 @@ const Home = () => {
       <button
         type="button"
         onClick={() => setShowAddUser(true)}
-        className="fixed top-4 right-4 z-20 flex w-32 justify-center rounded-md bg-green-600 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+        className="fixed top-4 right-4 z-20 flex w-32 justify-center rounded-md bg-green-600 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-green-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
       >
         Add User
       </button>

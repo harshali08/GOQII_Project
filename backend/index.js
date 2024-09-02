@@ -37,6 +37,44 @@ app.post('/user',(req,resp)=>{
     })
 })
 
+app.get('/user/:id', (req, resp) => {
+    const userId = req.params.id;
+    const sql = "SELECT * FROM users WHERE id = ?";
+    
+    db.query(sql, [userId], (err, result) => {
+        if (err) return resp.json({ Message: "Error fetching user data" });
+        return resp.json(result);
+    });
+});
+
+app.put('/user/:id', (req, resp) => {
+    const userId = req.params.id;
+    console.log(userId)
+    const sql = "UPDATE users SET Name = ?, Email = ?, Password = ?, DOB = ? WHERE id = ?";
+    const values = [
+        req.body.name,
+        req.body.email,
+        req.body.password,
+        req.body.dob
+    ];
+
+    db.query(sql, [...values, userId], (err, result) => {
+        if (err) return resp.json({ Message: "Error updating user" });
+        return resp.json(result);
+    });
+});
+
+app.delete('/user/:id', (req, resp) => {
+    const userId = req.params.id;
+    const sql = "DELETE FROM users WHERE id = ?";
+
+    db.query(sql, [userId], (err, result) => {
+        if (err) return resp.json({ Message: "Error deleting user" });
+        return resp.json(result);
+    });
+});
+
+
 app.listen(8081,()=>{
     console.log("Listening.....");
 })

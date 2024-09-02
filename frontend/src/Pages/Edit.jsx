@@ -1,7 +1,11 @@
-import React, { useState } from "react";
-import axios from "axios";
 
-const AddUser = ({ onClose, onUserAdded }) => {
+import React, { useEffect, useState } from 'react';
+import { useParams, useNavigate } from 'react-router-dom'; 
+import axios from 'axios';
+
+const Edit = () => {
+  const { id } = useParams(); 
+  const navigate = useNavigate(); 
   const [values, setValues] = useState({
     name: "",
     email: "",
@@ -9,26 +13,30 @@ const AddUser = ({ onClose, onUserAdded }) => {
     dob: "",
   });
 
+  useEffect(() => {
+    axios.get(`http://localhost:8081/user/${id}`)
+      .then((resp) => setValues({
+        name: resp.data[0].Name,
+        email: resp.data[0].Email,
+        password: resp.data[0].Password,
+        dob: resp.data[0].DOB,
+      }))
+      .catch((err) => console.log(err));
+  }, [id]);
+
   const handleSubmit = (e) => {
     e.preventDefault();
-
-    axios
-      .post("http://localhost:8081/user", {
-        name: values.name,
-        email: values.email,
-        password: values.password,
-        dob: values.dob,
-      })
-      .then((res) => {
-        onUserAdded();
-        onClose();
+    axios.put(`http://localhost:8081/user/${id}`, values)
+      .then((resp) => {
+        console.log(resp.data);
+        navigate('/'); 
       })
       .catch((err) => console.log(err));
   };
 
   return (
     <div className="sm:mt-10 mt-2 bg-white">
-      <div className="flex justify-center m-2 ">
+      <div className="flex justify-center m-2">
         <div
           className="md:w-96 w-full rounded-sm p-5"
           style={{
@@ -36,9 +44,9 @@ const AddUser = ({ onClose, onUserAdded }) => {
               "rgba(50, 50, 93, 0.25) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px",
           }}
         >
-          <div className="sm:mx-auto sm:w-full sm:max-w-sm ">
+          <div className="sm:mx-auto sm:w-full sm:max-w-sm">
             <h2 className="mt-3 text-center text-2xl font-bold leading-9 tracking-tight text-gray-900">
-              Add User
+              Edit User
             </h2>
           </div>
 
@@ -59,6 +67,7 @@ const AddUser = ({ onClose, onUserAdded }) => {
                     autoComplete="name"
                     required
                     placeholder="abc"
+                    value={values.name}
                     onChange={(e) =>
                       setValues({ ...values, name: e.target.value })
                     }
@@ -81,6 +90,7 @@ const AddUser = ({ onClose, onUserAdded }) => {
                     autoComplete="email"
                     required
                     placeholder="abc@gmail.com"
+                    value={values.email}
                     onChange={(e) =>
                       setValues({ ...values, email: e.target.value })
                     }
@@ -104,6 +114,7 @@ const AddUser = ({ onClose, onUserAdded }) => {
                     placeholder="********"
                     autoComplete="current-password"
                     required
+                    value={values.password}
                     onChange={(e) =>
                       setValues({ ...values, password: e.target.value })
                     }
@@ -124,6 +135,7 @@ const AddUser = ({ onClose, onUserAdded }) => {
                     id="dob"
                     name="dob"
                     type="date"
+                    value={values.dob}
                     onChange={(e) =>
                       setValues({ ...values, dob: e.target.value })
                     }
@@ -138,7 +150,7 @@ const AddUser = ({ onClose, onUserAdded }) => {
                   type="submit"
                   className="flex w-full justify-center rounded-md bg-green-600 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-green-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
                 >
-                  Add
+                  Update
                 </button>
               </div>
             </form>
@@ -149,4 +161,4 @@ const AddUser = ({ onClose, onUserAdded }) => {
   );
 };
 
-export default AddUser;
+export default Edit;

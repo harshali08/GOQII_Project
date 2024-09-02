@@ -1,6 +1,3 @@
-Here's a sample README file for your project. This README covers all the essential aspects of your project and provides instructions for setup and usage.
-
----
 
 # User Management System
 
@@ -68,7 +65,7 @@ This project is a full-stack application for managing user data. It includes a b
 5. **Start the Backend Server**
 
    ```bash
-   npm start
+   nodemon index.js
    ```
 
    The server will be running at `http://localhost:8081`.
@@ -97,31 +94,21 @@ This project is a full-stack application for managing user data. It includes a b
 
 ### Using the Application
 
-1. **Viewing Users**: Navigate to the main page to see a list of all users.
+1. **Viewing All Users**: Navigate to the main page to see a list of all users.
 2. **Adding Users**: Use the form to add new users to the system.
-3. **Updating Users**: Click on the "Edit" button next to a user to update their information.
-4. **Deleting Users**: Click on the "Delete" button next to a user to remove them from the system. A confirmation dialog will appear before deletion.
+3. **Viewing User**:Click on the "View" button next to a user to view their information.
+4. **Updating Users**: Click on the "Edit" button next to a user to update their information.
+5. **Deleting Users**: Click on the "Delete" button next to a user to remove them from the system. A confirmation dialog will appear before deletion.
 
-## Version Control
-
-- **Repository URL**: [GitHub Repository](https://github.com/your-username/user-management-system)
-- **Branching**: Use branches for features and bug fixes. Merge changes into the `main` branch through pull requests.
-- **Commits**: Write clear and descriptive commit messages.
 
 ## Assumptions and Decisions
 
 - **Database**: Used MySQL for database management due to its ease of use and popularity.
 - **Frameworks**: Node.js for the backend and React for the frontend to leverage their strengths in building RESTful APIs and interactive user interfaces, respectively.
-- **Authentication**: Basic implementation with passwords stored as plain text for demonstration purposes. In a real application, passwords should be hashed.
 
-## License
-
-This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
 
 ## Contact
 
-If you have any questions or need further clarifications, please reach out to [Your Email Address].
+If you have any questions or need further clarifications, please reach out to harshalifarde@gmail.com.
 
----
 
-Make sure to replace placeholder URLs and email addresses with your actual details before submitting the project.

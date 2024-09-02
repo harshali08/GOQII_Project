@@ -31,8 +31,7 @@ This project is a full-stack application for managing user data. It includes a b
 1. **Clone the Repository**
 
    ```bash
-   git clone https://github.com/your-username/user-management-system.git
-   cd user-management-system
+   git clone https://github.com/harshali08/GOQII_Project.git
    ```
 
 2. **Navigate to the Backend Directory**
@@ -54,7 +53,7 @@ This project is a full-stack application for managing user data. It includes a b
 
      ```sql
      CREATE TABLE users (
-       id INT AUTO_INCREMENT PRIMARY KEY,
+       ID INT AUTO_INCREMENT PRIMARY KEY,
        Name VARCHAR(255) NOT NULL,
        Email VARCHAR(255) NOT NULL UNIQUE,
        Password VARCHAR(255) NOT NULL,
@@ -99,6 +98,23 @@ This project is a full-stack application for managing user data. It includes a b
 3. **Viewing User**:Click on the "View" button next to a user to view their information.
 4. **Updating Users**: Click on the "Edit" button next to a user to update their information.
 5. **Deleting Users**: Click on the "Delete" button next to a user to remove them from the system. A confirmation dialog will appear before deletion.
+
+### Image References:
+
+User List Page
+![image](https://github.com/user-attachments/assets/d7e267cf-d8d8-417a-9c91-b90b910ec395)
+
+User Create Page
+![image](https://github.com/user-attachments/assets/d9121595-5b7e-4151-a5bd-955bb7cf1515)
+
+
+User Detail Page
+![image](https://github.com/user-attachments/assets/0a506e0a-d361-4b61-bd5f-789aa489725f)
+
+
+User Edit Form
+![image](https://github.com/user-attachments/assets/8974a0cf-272e-47fe-9638-25d4c3fee507)
+
 
 
 ## Assumptions and Decisions

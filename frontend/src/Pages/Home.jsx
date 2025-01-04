@@ -7,8 +7,8 @@ const Home = () => {
   const [refresh, setRefresh] = useState(false);
 
   const handleUserAdded = () => {
-    setRefresh((prev) => !prev);
-    setShowAddUser(false);
+    setRefresh((prev) => !prev)
+    setShowAddUser(false)
   };
 
   return (
